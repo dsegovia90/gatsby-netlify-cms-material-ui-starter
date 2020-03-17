@@ -14,7 +14,6 @@ const TestPage = ({ data }) => {
       case 'cards':
         return <Cards key={`${componentData.type}-${idx}`} data={componentData} />;
       case 'copyImage':
-        console.log('here', componentData);
         return <CopyImage key={`${componentData.type}-${idx}`} data={componentData} />;
       default:
         return null;
