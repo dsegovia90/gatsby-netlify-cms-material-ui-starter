@@ -15,13 +15,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Cards = ({ cards, config }) => {
+const Cards = ({ data: { cards, config } }) => {
   const styles = useStyles();
   return (
     <Container>
       <Grid className={styles.root} container justify="center" spacing={2}>
         {cards.map(({ text }) => (
-          <Grid item xs={12} md={config.mdCol}>
+          <Grid item xs={12} md={config.colMd}>
             <Card className={styles.card}>
               <CardContent>
                 {text}
