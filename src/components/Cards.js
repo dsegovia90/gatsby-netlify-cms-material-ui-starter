@@ -20,8 +20,8 @@ const Cards = ({ data: { cards, config } }) => {
   return (
     <Container>
       <Grid className={styles.root} container justify="center" spacing={2}>
-        {cards.map(({ text }) => (
-          <Grid item xs={12} md={config.colMd}>
+        {cards.map(({ title, text }, idx) => (
+          <Grid key={`${title}-${idx}`} item xs={12} md={config.colMd}>
             <Card className={styles.card}>
               <CardContent>
                 {text}
@@ -35,12 +35,14 @@ const Cards = ({ data: { cards, config } }) => {
 };
 
 Cards.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  })).isRequired,
-  config: PropTypes.shape({
-    mdCol: PropTypes.number.isRequired,
+  data: PropTypes.shape({
+    cards: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    })).isRequired,
+    config: PropTypes.shape({
+      colMd: PropTypes.number.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

@@ -3,23 +3,27 @@ import { graphql } from 'gatsby';
 
 import { PropTypes } from 'prop-types';
 import Cards from '../../components/Cards';
+import CopyImage from '../../components/CopyImage';
 import Layout from '../../components/Layout';
 
 const TestPage = ({ data }) => {
   const { components } = data.markdownRemark.frontmatter;
 
-  const componentsSwitch = ((componentData) => {
+  const componentsSwitch = ((componentData, idx) => {
     switch (componentData.type) {
       case 'cards':
-        return <Cards data={componentData} />;
+        return <Cards key={`${componentData.type}-${idx}`} data={componentData} />;
+      case 'copyImage':
+        console.log('here', componentData);
+        return <CopyImage key={`${componentData.type}-${idx}`} data={componentData} />;
       default:
-        break;
+        return null;
     }
   });
 
   return (
     <Layout>
-      {components.map((component) => componentsSwitch(component))}
+      {components.map(componentsSwitch)}
     </Layout>
   );
 };
@@ -48,7 +52,16 @@ query {
         config {
           colMd
         }
+        title
+        text
         type
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

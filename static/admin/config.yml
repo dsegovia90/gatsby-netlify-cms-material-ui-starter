@@ -16,7 +16,7 @@ public_folder: /img
 cards_component: &cards_component
   label: Cards Component
   name: cards
-  widget: list
+  widget: object
   fields:
     - label: Config
       name: config
@@ -38,6 +38,26 @@ cards_component: &cards_component
         - label: Text
           name: text
           widget: string
+
+copy_image_component: &copy_image_component
+  label: Copy Image Component
+  name: copyImage
+  widget: object
+  fields:
+    - label: Image
+      name: image
+      widget: image
+    - label: Title
+      name: title
+      widget: string
+    - label: Text
+      name: text
+      widget: text
+    # - label: Config
+    #   name: config
+    #   widget: object
+    #   fields:
+
 
 
 
@@ -103,3 +123,4 @@ collections:
             widget: list
             types:
               - *cards_component
+              - *copy_image_component
