@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Container, Grid, makeStyles, Typography, Box,
 } from '@material-ui/core';
+import { PropTypes } from 'prop-types';
 import Image from './PreviewCompatibleImage';
 
 
@@ -38,6 +39,14 @@ const CopyImage = ({ data: { title, text, image } }) => {
       </Grid>
     </Container>
   );
+};
+
+CopyImage.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    text: PropTypes.string,
+    image: PropTypes.object,
+  }).isRequired,
 };
 
 export default CopyImage;

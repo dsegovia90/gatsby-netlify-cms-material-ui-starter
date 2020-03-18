@@ -1,14 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { ServerStyleSheets } from '@material-ui/styles';
 
 import { PropTypes } from 'prop-types';
 import Cards from '../../components/Cards';
 import CopyImage from '../../components/CopyImage';
 import Layout from '../../components/Layout';
 
-const TestPage = ({ data }) => {
-  const { components } = data.markdownRemark.frontmatter;
-
+const TestPageTemplate = ({ components }) => {
   const componentsSwitch = ((componentData, idx) => {
     switch (componentData.type) {
       case 'cards':
@@ -20,21 +19,24 @@ const TestPage = ({ data }) => {
     }
   });
 
-  return (
-    <Layout>
-      {components.map(componentsSwitch)}
-    </Layout>
-  );
+  return components.map(componentsSwitch);
 };
 
-TestPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        components: PropTypes.array,
-      }),
-    }),
-  }).isRequired,
+TestPageTemplate.propTypes = {
+  components: PropTypes.array.isRequired,
+};
+
+const TestPage = ({ data }) => {
+  const { components } = data.markdownRemark.frontmatter;
+  const sheets = new ServerStyleSheets();
+
+  console.log(sheets);
+
+  return (
+    <Layout>
+      <TestPageTemplate components={components} />
+    </Layout>
+  );
 };
 
 export const pagesQuery = graphql`
@@ -67,5 +69,5 @@ query {
 }
 `;
 
-
+export { TestPageTemplate };
 export default TestPage;
