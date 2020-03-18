@@ -16,10 +16,6 @@ components:
           eum eum itaque. Molestiae qui molestias quod facere voluptatum atque
           dignissimos. Rerum nulla sed qui eum voluptatem reprehenderit
           explicabo.
-  - type: copyImage
-    title: Hello
-    text: World!
-    image: /img/blog-index.jpg
   - type: cards
     config:
       colMd: 4
@@ -30,4 +26,8 @@ components:
         title: Title2
       - text: let's go
         title: Title3
+  - type: copyImage
+    image: /img/blog-index.jpg
+    title: Title
+    text: Text
 ---
