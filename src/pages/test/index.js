@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { ServerStyleSheets } from '@material-ui/styles';
-
 import { PropTypes } from 'prop-types';
+
 import Cards from '../../components/Cards';
 import CopyImage from '../../components/CopyImage';
 import Layout from '../../components/Layout';
@@ -28,9 +27,6 @@ TestPageTemplate.propTypes = {
 
 const TestPage = ({ data }) => {
   const { components } = data.markdownRemark.frontmatter;
-  const sheets = new ServerStyleSheets();
-
-  console.log(sheets);
 
   return (
     <Layout>

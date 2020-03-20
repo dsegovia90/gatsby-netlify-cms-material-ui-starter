@@ -1,9 +1,15 @@
 ---
 components:
+  - type: copyImage
+    image: /img/blog-index.jpg
+    title: Title
+    text: Text
   - type: cards
     config:
-      colMd: 4
+      colMd: 6
     cards:
+      - title: Hello
+        text: New Card
       - title: Hoi
         text: >-
           Et voluptatem laudantium earum enim ut ut. Fuga qui error quam est
@@ -16,18 +22,10 @@ components:
           eum eum itaque. Molestiae qui molestias quod facere voluptatum atque
           dignissimos. Rerum nulla sed qui eum voluptatem reprehenderit
           explicabo.
-  - type: cards
-    config:
-      colMd: 4
-    cards:
-      - title: Title1
-        text: Hey
-      - text: ho
-        title: Title2
-      - text: let's go
-        title: Title3
   - type: copyImage
-    image: /img/blog-index.jpg
-    title: Title
-    text: Text
+    image: /img/chemex.jpg
+    title: Hello World
+    text: >-
+      Quia aliquid quas. Totam minus maxime facilis. Similique quisquam in sit
+      repellendus quo. Voluptatem dicta accusamus iure saepe nam sequi.
 ---

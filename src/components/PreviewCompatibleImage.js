@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
+  if (typeof imageInfo === 'string') {
+    imageInfo = {
+      image: imageInfo,
+    };
+  }
+  console.log(imageInfo);
   const imageStyle = { borderRadius: '5px' };
   const { alt = '', childImageSharp, image } = imageInfo;
 
